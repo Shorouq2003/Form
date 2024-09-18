@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="return chek()">   <!--عند الضغط على submit يحقق function check()-->
+            <label>Name:</label>
+            <br>
+            <input type="text" name="" id="" required>
+            <br>
+            <br>
+            <label>Email:</label>
+            <br>
+            <input type="email" name="" id="" required>
+            <br>
+            <br>
+            <label>Password:</label>
+            <br>
+            <input type="password" name="" id="pass">
+            <br>
+            <br>
+            <label>Confirm Password:</label>
+            <br>
+            <input type="password" name="" id="conpass">
+            <br>
+            <br>
+            <input type="submit" id="submit">
+        </form>
+    </div>
+
+    <div class="message">    <!--رسالة هتظهر لو البيانات غلط-->
+        <h2>Write A Valid Password!</h2>
+    </div>
+
+</body>
+
+         <script>
+
+            function chek(){    //function-->للتحقق من ال password
+
+                const pass=document.querySelector('#pass').value;
+
+                const conPass=document.querySelector('#conpass').value;
+
+                const message =document.querySelector('.message');
+
+                if(pass  === conPass &&  pass.length===conPass.length  && pass!=="" && conPass!=""){  //التحقق من ان قيمة password متطابقة مع confirm password وقيمتهما ليست فارغة
+                alert("Valid Password");
+                return true;   //لو البيانات صح هيبعتها
+            }
+            else{
+                message.style.display="block";
+                return false;    //لو البيانات غلط مش هيبعتها
+            }
+            }
+         </script>
+</html>
